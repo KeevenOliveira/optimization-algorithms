@@ -68,3 +68,17 @@ bestSolutionSimulated, bestCostSimulated = mlrose.simulated_annealing(problem)
 print(bestSolutionSimulated, bestCostSimulated)
 
 printFlights(bestSolutionSimulated)
+
+print(" ------------------ ")
+
+bestSolutionSimulatedDecay, bestCostSimulatedDecay = mlrose.simulated_annealing(problem,
+                                                                                schedule=mlrose
+                                                                                .decay.GeomDecay(init_temp=10000),
+                                                                                random_state=1)
+# bestSolutionSimulatedDecay, bestCostSimulatedDecay = mlrose.simulated_annealing(problem,
+# schedule=mlrose.decay.ArithDecay())
+# (schedule=mlrose.decay.ExpDecay())
+
+print(bestSolutionSimulatedDecay, bestCostSimulatedDecay)
+
+printFlights(bestSolutionSimulatedDecay)
