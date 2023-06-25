@@ -55,6 +55,8 @@ fitness = mlrose.CustomFitness(fitnessFunction)
 
 problem = mlrose.DiscreteOpt(length=12, fitness_fn=fitness,
                              maximize=False, max_val=10)
+print(" ------------------- ")
+print("* Hill Climb *")
 
 bestSolutionHillClimb, bestCostHillClimb = mlrose.hill_climb(problem, random_state=4)
 
@@ -63,6 +65,7 @@ print(bestSolutionHillClimb, bestCostHillClimb)
 printFlights(bestSolutionHillClimb)
 
 print(" ------------------ ")
+print("* Simulated Annealing *")
 
 bestSolutionSimulated, bestCostSimulated = mlrose.simulated_annealing(problem)
 print(bestSolutionSimulated, bestCostSimulated)
@@ -70,6 +73,7 @@ print(bestSolutionSimulated, bestCostSimulated)
 printFlights(bestSolutionSimulated)
 
 print(" ------------------ ")
+print("* Simulated Annealing *")
 
 bestSolutionSimulatedDecay, bestCostSimulatedDecay = mlrose.simulated_annealing(problem,
                                                                                 schedule=mlrose
@@ -82,3 +86,12 @@ bestSolutionSimulatedDecay, bestCostSimulatedDecay = mlrose.simulated_annealing(
 print(bestSolutionSimulatedDecay, bestCostSimulatedDecay)
 
 printFlights(bestSolutionSimulatedDecay)
+
+print(" ------------------- ")
+print("* Algorithms generics *")
+
+bestSolutionGeneticAlg, bestCostGeneticAlg = mlrose.genetic_alg(problem, pop_size=500, mutation_prob=0.3, random_state=1)
+
+print(bestSolutionGeneticAlg, bestCostGeneticAlg)
+
+printFlights(bestSolutionGeneticAlg)
