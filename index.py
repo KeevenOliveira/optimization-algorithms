@@ -1,3 +1,5 @@
+from fitnessFunction import fitnessFunction
+
 people = [('Lisboa', 'LIS'),
            ('Madrid', 'MAD'),
            ('Paris', 'CDG'),
@@ -35,4 +37,4 @@ def printFlights(schedule):
     print('Total price: ', totalPrice)
 
 
-printFlights(schedule)
+print(fitnessFunction(schedule))
