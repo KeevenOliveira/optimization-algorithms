@@ -56,8 +56,15 @@ fitness = mlrose.CustomFitness(fitnessFunction)
 problem = mlrose.DiscreteOpt(length=12, fitness_fn=fitness,
                              maximize=False, max_val=10)
 
-bestSolution, bestCost = mlrose.hill_climb(problem, random_state=4)
+bestSolutionHillClimb, bestCostHillClimb = mlrose.hill_climb(problem, random_state=4)
 
-print(bestSolution, bestCost)
+print(bestSolutionHillClimb, bestCostHillClimb)
 
-printFlights(bestSolution)
+printFlights(bestSolutionHillClimb)
+
+print(" ------------------ ")
+
+bestSolutionSimulated, bestCostSimulated = mlrose.simulated_annealing(problem)
+print(bestSolutionSimulated, bestCostSimulated)
+
+printFlights(bestSolutionSimulated)
